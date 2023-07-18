@@ -7,15 +7,15 @@
 }
 
 body {
-	background-color: rgba(255, 255, 255, 1);
+	background-color: rgb(223, 207, 56);
 	font-family: 'Roboto', sans-serif;
 }
 
 .container {
 	backdrop-filter: blur(5px);
 	background-color: rgba(255, 255, 255, 1);
-	border-radius: 26px;
-	box-shadow: -35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset 8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+	border-radius: 32px;
+	box-shadow: var(--shadow-outset, 8px 8px 16px 0 rgba(0,0,0,.25)), inset var(--shadow-inset-primary,-8px -8px 16px 0 rgba(0,0,0,.25)),inset var(--shadow-inset-secondary,8px 8px 16px 0 hsla(0,0%,100%,.2));
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -38,7 +38,7 @@ h3 {
 
 .timer {
 	display: flex;
-	flex-direction: row;
+	justify-content: center;
 	font-size: 2em;
 	text-align: center;
 }
@@ -52,15 +52,14 @@ h3 {
 	padding: 16px;
 	font-size: 16px;
 	border: none;
-	border-radius: 26px;
+	border-radius: 32px;
 	width: 70px;
 	cursor: pointer;
 	margin-top: 20px;
 	margin-bottom: 10px;
 	color: #fff;
-	background: var(--clay-background,rgba(0,0,0,.005));
-    border-radius: var(--clay-border-radius,32px);
-    box-shadow: var(--clay-shadow-outset,8px 8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-primary,-8px -8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-secondary,8px 8px 16px 0 hsla(0,0%,100%,.2));
+	background: rgba(0,0,0,.005);
+    box-shadow: var(--shadow-outset, 8px 8px 16px 0 rgba(0,0,0,.25)),inset var(--shadow-inset-primary,-8px -8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-secondary,8px 8px 16px 0 hsla(0,0%,100%,.2));
 }
 
 #start {
