@@ -21,7 +21,6 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 320px;
-	height: 230px;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
@@ -29,6 +28,7 @@ body {
 
 h3 {
 	margin: 10px 0px 20px 0px;
+	text-shadow: 0 0.075em rgba(0,0,0,.25);
 }
 
 .time {
@@ -49,23 +49,28 @@ h3 {
 }
 
 .btn {
-	padding: 20px;
+	padding: 16px;
 	font-size: 16px;
 	border: none;
 	border-radius: 26px;
 	width: 70px;
 	cursor: pointer;
 	margin-top: 20px;
+	margin-bottom: 10px;
+	color: #fff;
+	background: var(--clay-background,rgba(0,0,0,.005));
+    border-radius: var(--clay-border-radius,32px);
+    box-shadow: var(--clay-shadow-outset,8px 8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-primary,-8px -8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-secondary,8px 8px 16px 0 hsla(0,0%,100%,.2));
 }
 
 #start {
-	background: linear-gradient(180deg, rgba(143, 225, 122, 0.5) 0%, rgba(22, 205, 40, 0.6) 100%);
+	background: rgb(13, 161, 13);
 }
 
 #stop {
-	background: linear-gradient(180deg, #e1acac 0%, #ff5454 100%);
+	background: rgb(215, 25, 25);
 }
 
 #reset {
-	background: linear-gradient(180deg, #fff786 0%, #ded012 100%);
+	background: rgb(13, 161, 119);
 }
