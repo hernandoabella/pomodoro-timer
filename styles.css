@@ -21,14 +21,14 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 320px;
-	height: 250px;
+	height: 230px;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
 }
 
 h3 {
-	margin: 20px;
+	margin: 10px 0px 20px 0px;
 }
 
 .time {
@@ -66,7 +66,7 @@ h3 {
 }
 
 #start {
-	background: linear-gradient(180deg, #ACE1AF 0%, #1cd839 100%);
+	background: linear-gradient(180deg, rgba(145, 192, 255, 0.5) 0%, rgba(145, 192, 255, 0.6) 100%);
 }
 
 #stop {
