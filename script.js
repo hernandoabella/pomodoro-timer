@@ -1,76 +1,105 @@
-const start = document.getElementById("start");
-const reset = document.getElementById("reset");
-const stop = document.getElementById("stop");
+const startButton = document.getElementById("start");
+const resetButton = document.getElementById("reset");
+const stopButton = document.getElementById("stop");
 
-const wm = document.getElementById("workMinutes");
-const ws = document.getElementById("workSeconds");
+const workMinutesElement = document.getElementById("workMinutes");
+const workSecondsElement = document.getElementById("workSeconds");
 
-const bm = document.getElementById("breakMinutes");
-const bs = document.getElementById("breakSeconds");
+const breakMinutesElement = document.getElementById("breakMinutes");
+const breakSecondsElement = document.getElementById("breakSeconds");
 
-// Variable reference for start time
+const counterElement = document.getElementById("counter");
+
 let startTimer;
 let timeRunning = false;
 
-// Start timer
-start.addEventListener("click", function () {
-	if (startTimer === undefined) {
-		startTimer = setInterval(time, 1000);
-		timeRunning = false;
-	}
+startButton.addEventListener("click", function () {
+  if (!timeRunning) {
+    startTimer = setInterval(updateTimer, 1000);
+    timeRunning = true;
+  }
 });
 
-// Stop timer
-stop.addEventListener("click", function () {
-	stopInterval();
-	startTimer = undefined;
+stopButton.addEventListener("click", function () {
+  stopTimer();
 });
 
-// Reset timer
-reset.addEventListener("click", function () {
-	wm.innerText = 25;
-	ws.innerText = "00";
-
-	bm.innerText = 5;
-	bs.innerText = "00";
-
-	document.getElementById("counter").innerText = 0;
-	stopInterval();
-	startTimer = undefined;
+resetButton.addEventListener("click", function () {
+  resetTimer();
 });
 
-function time() {
-	// Work timer
-	if (ws.innerText != 0) {
-		ws.innerText--;
-	} else if (wm.innerText != 0 && ws.innerText == 0) {
-		ws.innerText = 59;
-		wm.innerText--;
-	}
-
-	// Break timer
-	if (wm.innerText == 0 && ws.innerText == 0) {
-		if (bs.innerText != 0) {
-			bs.innerText--;
-		} else if (bm.innerText != 0 && bs.innerText == 0) {
-			bs.innerText = 59;
-			bm.innerText--;
-		}
-	}
-
-	// Increment cycle count by one when work and break timers are zero
-	if (wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0) {
-		wm.innerText = 25;
-		ws.innerText = "00";
-
-		bm.innerText = 5;
-		bs.innerText = "00";
-
-		document.getElementById("counter").innerText++;
-	}
+function updateTimer() {
+  updateWorkTimer();
+  updateBreakTimer();
+  updateCycleCounter();
 }
 
-// Stop interval function
-function stopInterval() {
-	clearInterval(startTimer);
+function updateWorkTimer() {
+  let workMinutes = parseInt(workMinutesElement.innerText);
+  let workSeconds = parseInt(workSecondsElement.innerText);
+
+  if (workSeconds !== 0) {
+    workSeconds--;
+  } else if (workMinutes !== 0 && workSeconds === 0) {
+    workSeconds = 59;
+    workMinutes--;
+  }
+
+  workMinutesElement.innerText = padZero(workMinutes);
+  workSecondsElement.innerText = padZero(workSeconds);
+}
+
+function updateBreakTimer() {
+  let breakMinutes = parseInt(breakMinutesElement.innerText);
+  let breakSeconds = parseInt(breakSecondsElement.innerText);
+
+  if (breakMinutes === 0 && breakSeconds === 0) {
+    return;
+  }
+
+  if (breakSeconds !== 0) {
+    breakSeconds--;
+  } else if (breakMinutes !== 0 && breakSeconds === 0) {
+    breakSeconds = 59;
+    breakMinutes--;
+  }
+
+  breakMinutesElement.innerText = padZero(breakMinutes);
+  breakSecondsElement.innerText = padZero(breakSeconds);
+}
+
+function updateCycleCounter() {
+  let workMinutes = parseInt(workMinutesElement.innerText);
+  let workSeconds = parseInt(workSecondsElement.innerText);
+  let breakMinutes = parseInt(breakMinutesElement.innerText);
+  let breakSeconds = parseInt(breakSecondsElement.innerText);
+
+  if (workMinutes === 0 && workSeconds === 0 && breakMinutes === 0 && breakSeconds === 0) {
+    workMinutesElement.innerText = "25";
+    workSecondsElement.innerText = "00";
+    breakMinutesElement.innerText = "5";
+    breakSecondsElement.innerText = "00";
+
+    let cycleCount = parseInt(counterElement.innerText);
+    counterElement.innerText = cycleCount + 1;
+  }
+}
+
+function stopTimer() {
+  clearInterval(startTimer);
+  timeRunning = false;
+}
+
+function resetTimer() {
+  workMinutesElement.innerText = "25";
+  workSecondsElement.innerText = "00";
+  breakMinutesElement.innerText = "5";
+  breakSecondsElement.innerText = "00";
+  counterElement.innerText = "0";
+
+  stopTimer();
+}
+
+function padZero(value) {
+  return value.toString().padStart(2, "0");
 }
