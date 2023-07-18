@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css" />
@@ -15,9 +15,9 @@
 <body>
     <div class="container">
         <div class="time">
-            <!-- work timer -->
+            
             <div id="work">
-                <p>work</p>
+                <h3>Trabajo</h3>
                 <div id="work-timer" class='timer'>
                     <p id="workMinutes">25</p>
                     <p class="semicolon">:</p>
@@ -25,15 +25,14 @@
                 </div>
             </div>
 
-            <!-- cycle counter -->
             <div id="cycle">
-                <p>cycle</p>
+                <h3>Ciclo</h3>
                 <div id="counter" class='timer'>0</div>
             </div>
 
-            <!-- break timer -->
+            
             <div id="break">
-                <p>break</p>
+                <h3>Descanso</h3>
                 <div id="break-timer" class='timer'>
                     <p id="breakMinutes">5</p>
                     <p class="semicolon">:</p>
@@ -42,16 +41,14 @@
             </div>
         </div>
 
-
-        <!-- buttons -->
         <div id="button">
-            <button id="start" class="btn">start</button>
-            <button id="reset" class="btn">reset</button>
-            <button id="stop" class="btn">pause</button>
+            <button id="start" class="btn"><i class="fa-solid fa-play"></i></button>
+            <button id="stop" class="btn"><i class="fa-solid fa-pause"></i></button>
+            <button id="reset" class="btn"><i class="fa-solid fa-rotate-right"></i></button>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
