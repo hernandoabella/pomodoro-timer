@@ -43,13 +43,6 @@ h3 {
 	text-align: center;
 }
 
-#work,
-#cycle,
-#break {
-	
-	
-}
-
 #button {
 	display: flex;
 	justify-content: space-around;
@@ -66,7 +59,7 @@ h3 {
 }
 
 #start {
-	background: linear-gradient(180deg, rgba(145, 192, 255, 0.5) 0%, rgba(145, 192, 255, 0.6) 100%);
+	background: linear-gradient(180deg, rgba(143, 225, 122, 0.5) 0%, rgba(22, 205, 40, 0.6) 100%);
 }
 
 #stop {
