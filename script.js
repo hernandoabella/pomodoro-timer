@@ -75,8 +75,8 @@ function updateBreakTimer() {
   if (breakSeconds !== 0) {
     breakSeconds--;
   } else if (breakMinutes !== 0 && breakSeconds === 0) {
-    breakSeconds = 59;
-    breakMinutes--;
+    breakMinutes--; // Reducir el contador de minutos primero
+    breakSeconds = 59; // Luego ajustar el contador de segundos a 59
   }
 
   breakMinutesElement.innerText = padZero(breakMinutes);
