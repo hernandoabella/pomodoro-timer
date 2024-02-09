@@ -1,1 +1,1 @@
-# temporizador-pomodoro
+# pomodoro-timer
